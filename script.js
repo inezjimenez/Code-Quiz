@@ -85,7 +85,23 @@ function showScores() {
         `;
         let quizElement=document.getElementById("quiz")
         quizElement.innerHTML= quizEndHTML;
-          
-        
-        
 }
+
+//creating quiz questions
+let questions= [
+    new Question(
+        "Hyper Text Markup Language Stands For?", ["JQuery","CSS","HTML","XHTML"], "HTML"
+    ),
+    new Question(
+        "Cascading Style sheet stands for?", ["HTML","JQuery","CSS","XML"], "CSS"
+    ),
+    new Question(
+        "Which is a JavaScript Framework?", ["React","Laravel","Django","Sass"], "React"
+    ),
+    new Question(
+        "Which is a backend language?", ["PHP","HTML","React","ALL"], "PHP"
+    ),
+    new Question(
+        "Which is best for Artificial intelligence?", ["React","Laravel","Python","Sass"], "Python"
+    )
+]
