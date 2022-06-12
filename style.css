@@ -49,8 +49,8 @@
     font-size: 2rem;
     font-weight:700;
     background-color:orangered;
-    padding 5px;
-    margin 1px;
+    padding: 5px;
+    margin: 1px;
     color:var(--white);
     border-radius: 3px;
 }

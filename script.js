@@ -1,33 +1,34 @@
 // creating quiz class
 class Quiz {
     constructor(questions) {
-        this.score=0;
-        this.questions=questions;
-        this.questionIndex=0;
+        this.score = 0;
+        this.questions = questions;
+        this.questionIndex = 0;
     }
 
     getQuestionIndex() {
-        return this.questions{this.questionIndex};
+        return this.questions[this.questionIndex];
     }
 
-    quess(answer) {
-        if(this.getQuestionIndex().isCorrectAnswer(answer))
-        this.score++;
+    guess(answer) {
+        if(this.getQuestionIndex().isCorrectAnswer(answer)){
+            this.score++;
+        }
+        this.questionIndex++;
     }
-    this.questionIndex++;
 
     isEnded() {
-        return this.questionIndex === this.questions.legnth;
+        return this.questionIndex === this.questions.questionslength;
     }
-
 }
 
 //creating question class
+
 class Question {
-    constructor(text,choices,answer) {
-        this.text=text;
-        this.choices=choices;
-        this.answer=answer;
+    constructor(text, choices, answer) {
+        this.text =text;
+        this.choices =choices;
+        this.answer =answer;
     }
 
     isCorrectAnswer(choice) {
@@ -37,19 +38,19 @@ class Question {
 
 //displaying questions
 function displayQuestion() {
-    if (quiz.isEnded()) {
+    if (quiz.isEnded()) { 
         showScores();
-    }else{
-        //show question
-        let questionElement=document.getElementById("question");
-        questionElement=quiz.getQuestionIndex().text;
+    } else {
+        //showing the next question
+        let questionElement = document.getElementById("question");
+        questionElement.innerHTML=quiz.getQuestionIndex().text;
 
-        //show options
-        let choices=quiz.getQuestionIndex().choices;
-        for(let i=0;i<choices.legnth;i++) {
-            let choiceElement=document.getElementById("choice"+i);
-            choiceElement.innerHTML=choices[i]
-            guess("btn"+i,choices[i]);
+        //displaying the options
+        let choices = quiz.getQuestionIndex().choices;
+        for (let i= 0; i< choices.legnth; i++) {
+            let choiceElement = document.getElementById("choice" + i);
+            choiceElement.innerHTML = choices[i];
+            guess("btn" + i, choices[i]);
         }
 
         showProgress();
@@ -57,9 +58,9 @@ function displayQuestion() {
 };
 
 //creating guess function
-function guess(id,guess){
-    let button=document.getElementById(id);
-    button.oneclick=function(){
+function guess(id,guess) {
+    let button = document.getElementById(id);
+    button.onclick = function(){
         quiz.guess(guess);
         displayQuestion();
     }
@@ -67,10 +68,10 @@ function guess(id,guess){
 
 //show quiz progress
 function showProgress() {
-    let currentQuestionNumber=quiz.questionIndex + 1;
-    let progressElement= document.getElementById("progress")
-    pregressElement.innerHTML=
-    'Question ${currentQuestionNumber} of ${quiz.question.length}';
+    let currentQuestionNumber = quiz.questionIndex + 1;
+    let progressElement = document.getElementById("progress");
+    progressElement.innerHTML= 
+    `Question ${currentQuestionNumber} of ${quiz.question.length}`;
 }
 
 //show score
@@ -79,12 +80,12 @@ function showScores() {
         `
             <h1> Quiz Completed</h1>
             <h2 id="score">You Scored: ${quiz.score} of ${quiz.question.length}</h2>        
-            <div class="quiz-repeats">
-            <a href="index.html>Take Quiz Again</a>
+            <div class ="quiz-repeat">
+            <a href="index.html">Take Quiz Again</a>
             </div>
         `;
-        let quizElement=document.getElementById("quiz")
-        quizElement.innerHTML= quizEndHTML;
+        let quizElement = document.getElementById("quiz");
+        quizElement.innerHTML = quizEndHTML;
 }
 
 //creating quiz questions
@@ -104,4 +105,9 @@ let questions= [
     new Question(
         "Which is best for Artificial intelligence?", ["React","Laravel","Python","Sass"], "Python"
     )
-]
+];
+
+let quiz = new Quiz(questions);
+
+// display question
+displayQuestion();
