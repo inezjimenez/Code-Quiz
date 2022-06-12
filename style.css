@@ -14,7 +14,22 @@
     margin: 0 auto;
     background-color: grey;
     padding: 1rem 5rem 5rem 5rem;
-    border: 3px solid var(--color-primary);
+    border: 3px solid blue;
     border-radius: 5px;
+}
 
+.quiz-box h1 {
+    background-color:green;
+    font-size: 4rem;
+    text-align: center;
+    color:var(--blue);
+    padding: 1rem 0;
+    width: 100%;
+    margin-bottom: 2rem;
+    border-radius:3px;
+}
+
+.quiz-header {
+    display:flex;
+    justify-content: space-between;
 }
