@@ -1,16 +1,18 @@
 # JavaScript Quiz App
 
-## Table of Content
-* [General Information] (#General-Information)
-* [Technologies] (#Technologies)
+## Table of Contents
+
+- [General Information](#General-Information)
+- [Technologies](#Technologies)
 
 ### General Information
 
-
-
+A timed quiz
 
 ### Technologies
+
 This application uses the following
-* HTML
-* CSS 
-* JavaScript
+
+- HTML
+- CSS
+- JavaScript
